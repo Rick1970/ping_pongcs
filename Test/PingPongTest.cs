@@ -13,9 +13,13 @@ namespace PingPong.Objects
     {
       Ping.DeleteAll();
     }
-    public static bool Calculate()
+
+    [Fact]
+    public void Calculate_ReturnOneAfterInputOne_true()
     {
-      return false;
+
+      Ping testPing = new Ping("1");
+      Assert.Equal(true, testPing.Calculate());
     }
   }
 }
