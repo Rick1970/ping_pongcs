@@ -1,15 +1,21 @@
 using Xunit;
-namespace PingPong
+using System;
+
+namespace PingPong.Objects
 {
-  public class PingPongTest
+  public class PingPongGenerator
   {
 
   }
-  public class PongTest : IDisposable
+  public class PingTest : IDisposable
   {
     public void Dispose()
     {
-      Task.DeleteAll();
+      Ping.DeleteAll();
+    }
+    public static bool Calculate()
+    {
+      return false;
     }
   }
 }
