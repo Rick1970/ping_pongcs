@@ -2,7 +2,7 @@ using Nancy;
 using System.Collections.Generic;
 using PingPong.Objects;
 
-namespace PingPong.Objects
+namespace PingPong
 {
   public class HomeModule : NancyModule
   {
@@ -13,9 +13,12 @@ namespace PingPong.Objects
       };
 
       Post["/number_added"] = _ => {
-        Ping newPing = new Ping(Request.Form["number"]);
+        Ping newPing = new Ping(Request.Form[int.Parse("number")]);
+
+        newPing.Calculate();
         newPing.Save();
         List<Ping> allPings = Ping.GetAll();
+
         return View["/number_added.cshtml", allPings];
       };
     }

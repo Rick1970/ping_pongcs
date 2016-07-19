@@ -5,18 +5,18 @@ namespace PingPong.Objects
 {
   public class Ping
   {
-    private string _inputNumber;
+    private int _inputNumber;
     private static List<Ping>_instances = new List<Ping> {};
 
-    public Ping (string number)
+    public Ping (int number)
     {
       _inputNumber = number;
     }
-    public string GetNumber()
+    public int GetNumber()
     {
       return _inputNumber;
     }
-    public void SetNumber(string finalNumber)
+    public void SetNumber(int finalNumber)
     {
       _inputNumber = finalNumber;
     }
@@ -32,9 +32,23 @@ namespace PingPong.Objects
     {
       _instances.Clear();
     }
-    public bool Calculate()
+    public string Calculate()
     {
-      return false;
+      if(_inputNumber % 15 == 0)
+      {
+        return "ping-pong";
+      }
+      else if (_inputNumber % 5 == 0)
+      {
+        return "pong";
+      }
+      else if (_inputNumber % 3 == 0)
+      {
+        return "ping";
+      }
+      else {
+        return _inputNumber.ToString();
+      }
     }
   }
 }
